@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "daYClbFOTC+7K68DSmJSq5iZxOemFQKJ1anc/REFSvQ=",
+  "Source": "dotInstrukcije",
+  "BasePath": "_content/dotInstrukcije",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "dotInstrukcije\\wwwroot",
+      "Source": "dotInstrukcije",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\dotInstrukcije\\dotInstrukcije-backend\\wwwroot\\",
+      "BasePath": "_content/dotInstrukcije",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

@@ -8,7 +8,7 @@ import ProfilePage from './pages/profilepage/ProfilePage.jsx'
 import PingPage from './pages/pages/PingPage.jsx';
 import SettingsPage from './pages/settings/SettingsPage.jsx';
 import NewSubject from './pages/newsubjectpage/NewSubjectPage.jsx';
-
+ 
 function App() {
   return (
     <Router>

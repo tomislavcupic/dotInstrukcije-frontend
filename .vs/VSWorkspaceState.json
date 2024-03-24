@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dotInstrukcije-backend",
+    "\\dotInstrukcije-backend\\models",
+    "\\dotInstrukcije-backend\\wwwroot\\slike",
+    "\\dotInstrukcije-frontend",
+    "\\dotInstrukcije-frontend\\src",
+    "\\dotInstrukcije-frontend\\src\\api",
+    "\\dotInstrukcije-frontend\\src\\pages",
+    "\\dotInstrukcije-frontend\\src\\pages\\registerpage",
+    "\\properties"
+  ],
+  "SelectedNode": "\\dotInstrukcije-backend\\models\\StudentLoginModel.cs",
+  "PreviewInSolutionExplorer": false
+}

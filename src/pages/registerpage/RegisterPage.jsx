@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  Button,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-} from "@mui/material";
+import {Button,InputAdornment,InputLabel,OutlinedInput,} from "@mui/material";
 
 import "./RegisterPage.css";
 import { handlerRegister } from "../../api/AuthApi";
@@ -24,7 +19,8 @@ function RegisterPage() {
   const [studentEmail, setStudentEmail] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
   const [studentConfirmPassword, setStudentConfirmPassword] = useState("");
-  const [studentProfilePicture, setStudentProfilePicture] = useState(null);
+  const [studentProfilePictureUrl, setStudentProfilePictureUrl] = useState("");
+
 
   const [professorName, setProfessorName] = useState("");
   const [professorSurname, setProfessorSurname] = useState("");
@@ -34,23 +30,28 @@ function RegisterPage() {
   const [professorProfilePicture, setProfessorProfilePicture] = useState(null);
   const [professorSubjects, setProfessorSubjects] = useState([]);
 
-  const handleStudentSubmit = async (event) => {
-    event.preventDefault();
+  const [subjects, setSubjects] = useState([]);
 
-    // Prepare the data to be sent
-    const studentData = new FormData();
-    studentData.append("name", studentName);
-    studentData.append("surname", studentSurname);
-    studentData.append("email", studentEmail);
-    studentData.append("password", studentPassword);
-    studentData.append("confirmPassword", studentConfirmPassword);
-    studentData.append("profilePicture", studentProfilePicture);
+  useEffect(() => {
+        getSubjects().then((response) => setSubjects(response.subjects));
+   }, []);
 
-    console.log(studentData);
+   
+    const handleStudentSubmit = async (event) => {
+        event.preventDefault();
 
-    // Send the data to the server
-    handlerRegister(studentData, "student");
-  };
+        const formData = new FormData();
+        formData.append('name', studentName);
+        formData.append('surname', studentSurname);
+        formData.append('email', studentEmail);
+        formData.append('password', studentPassword);
+        formData.append('confirmPassword', studentConfirmPassword);
+        formData.append('profilePicture', studentProfilePictureUrl);
+
+        console.log(formData);
+
+        handlerRegister(formData, "student");
+    };
 
   const handleProfessorSubmit = async (event) => {
     event.preventDefault();
@@ -69,15 +70,13 @@ function RegisterPage() {
     handlerRegister(professorData, "professor");
   };
 
-  const handleStudentImageChange = (event) => {
-    setStudentProfilePicture(event.target.files[0]);
-  };
+    const handleStudentImageChange = (event) => {
+        setStudentProfilePictureUrl(event.target.files[0]);
+    };
 
   const handleProfessorImageChange = (event) => {
     setProfessorProfilePicture(event.target.files[0]);
   };
-
-  const [subjects, setSubjects] = useState([]);
 
   useEffect(() => {
     getSubjects().then((response) => setSubjects(response.subjects));
@@ -205,7 +204,7 @@ function RegisterPage() {
                   setStudentEmail("");
                   setStudentPassword("");
                   setStudentConfirmPassword("");
-                  setStudentProfilePicture(null);
+                  setStudentProfilePictureUrl("");
                 }}
               >
                 Odbaci
